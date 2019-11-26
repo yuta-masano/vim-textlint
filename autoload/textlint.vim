@@ -52,7 +52,7 @@ function! s:build_config(root_path, autofix)
     let s:textlint_config = g:textlint_configs[0]
   endif
 
-  let file = a:autofix ? '%s' : &filetype == 'markdown' ? expand('%:p').'.md' : expand('%s:p').'.text'
+  let file = a:autofix ? '%s' : expand('%:p')
   let stdin = a:autofix ? '' : '--stdin --stdin-filename'
   if s:textlint_config == ''
     let config_path = printf(' %s %s --format json ', stdin, file)
